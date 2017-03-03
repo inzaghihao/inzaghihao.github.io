@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 魔都青人
-subtitle: side for dream
-description: dream start here
-author: hao
+title: 魔都青人aaa
+subtitle: dream for here
+description: dream for here
+author: Hao
 language: zh-Hans
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://inzaghihao.github.io
+url: http://yoursite.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
