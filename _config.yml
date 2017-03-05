@@ -5,14 +5,14 @@
 # Site
 title: 魔都青人
 subtitle: dream for here
-description: dream for here
+description: 自律给我自由
 author: Hao
 language: zh-Hans
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://inzaghihao.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -71,3 +71,6 @@ deploy:
   type: git
   repo: git@github.com:inzaghihao/inzaghihao.github.io.git #github仓库地址
   branch: master # github分支
+
+# 多说
+duoshuo_shortname: inzaghihao
