@@ -87,3 +87,16 @@ links:
 # 社交链接 
 
 
+# 设置首页文章显示篇数
+
+index_generator:
+  per_page: 4
+
+archive_generator:
+  per_page: 20
+  yearly: true
+  monthly: true
+
+tag_generator:
+  per_page: 10
+
