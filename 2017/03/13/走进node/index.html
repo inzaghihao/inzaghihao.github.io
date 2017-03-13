@@ -1,0 +1,777 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="node,笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="安装nodejs下载地址：nodejs官网
+babel 相关在一个新建的文件夹底下初始化配置文件package.jsonnpm init
+123456789101112&amp;#123;  &amp;quot;name&amp;quot;: &amp;quot;testjs&amp;quot;,  &amp;quot;version&amp;quot;: &amp;quot;1.0.0&amp;quot;,  &amp;quot;description&amp;quot;: &amp;qu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="走进node (初级)">
+<meta property="og:url" content="https://inzaghihao.github.io/2017/03/13/走进node/index.html">
+<meta property="og:site_name" content="魔都青人">
+<meta property="og:description" content="安装nodejs下载地址：nodejs官网
+babel 相关在一个新建的文件夹底下初始化配置文件package.jsonnpm init
+123456789101112&amp;#123;  &amp;quot;name&amp;quot;: &amp;quot;testjs&amp;quot;,  &amp;quot;version&amp;quot;: &amp;quot;1.0.0&amp;quot;,  &amp;quot;description&amp;quot;: &amp;qu">
+<meta property="og:updated_time" content="2017-03-13T12:42:05.237Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="走进node (初级)">
+<meta name="twitter:description" content="安装nodejs下载地址：nodejs官网
+babel 相关在一个新建的文件夹底下初始化配置文件package.jsonnpm init
+123456789101112&amp;#123;  &amp;quot;name&amp;quot;: &amp;quot;testjs&amp;quot;,  &amp;quot;version&amp;quot;: &amp;quot;1.0.0&amp;quot;,  &amp;quot;description&amp;quot;: &amp;qu">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inzaghihao.github.io/2017/03/13/走进node/"/>
+
+
+
+
+
+  <title> 走进node (初级) | 魔都青人 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">魔都青人</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">dream for here</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://inzaghihao.github.io/2017/03/13/走进node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="魔都青人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                走进node (初级)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-13T19:44:10+08:00">
+                2017-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/13/走进node/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/13/走进node/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h3><p>下载地址：<a href="https://nodejs.org/en/" target="_blank" rel="external">nodejs官网</a></p>
+<h3 id="babel-相关"><a href="#babel-相关" class="headerlink" title="babel 相关"></a>babel 相关</h3><h4 id="在一个新建的文件夹底下初始化配置文件package-json"><a href="#在一个新建的文件夹底下初始化配置文件package-json" class="headerlink" title="在一个新建的文件夹底下初始化配置文件package.json"></a>在一个新建的文件夹底下初始化配置文件<code>package.json</code></h4><p><code>npm init</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;testjs&quot;,</div><div class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">  &quot;description&quot;: &quot;&quot;,</div><div class="line">  &quot;main&quot;: &quot;index.js&quot;,</div><div class="line">  &quot;scripts&quot;: &#123;</div><div class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;author&quot;: &quot;hao&quot;,</div><div class="line">  &quot;license&quot;: &quot;ISC&quot;,</div><div class="line">  &quot;devDependencies&quot;: &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="使用npm安装babel-客户端工具"><a href="#使用npm安装babel-客户端工具" class="headerlink" title="使用npm安装babel 客户端工具"></a>使用npm安装babel 客户端工具</h4><p><code>npm install babel-cli --save-dev</code></p>
+<p><em>建议不要全局安装，以免更新导致版本不一</em></p>
+<h4 id="安装“编译”es2015-相关babel-插件-babel-preset-es2015"><a href="#安装“编译”es2015-相关babel-插件-babel-preset-es2015" class="headerlink" title="安装“编译”es2015 相关babel 插件 babel-preset-es2015"></a>安装“编译”es2015 相关babel 插件 babel-preset-es2015</h4><p><code>npm install babel-preset-es2015 --save-dev</code></p>
+<h4 id="在根目录下创建-babelrc-的配置文件"><a href="#在根目录下创建-babelrc-的配置文件" class="headerlink" title="在根目录下创建.babelrc 的配置文件"></a>在根目录下创建.babelrc 的配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;presets&quot;:[&quot;es2015&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="配置package-json文件运行es2015-文件"><a href="#配置package-json文件运行es2015-文件" class="headerlink" title="配置package.json文件运行es2015 文件"></a>配置<code>package.json</code>文件运行es2015 文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">    &quot;text&quot;: &quot;babel-node index.js&quot;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h4 id="使用npm运行"><a href="#使用npm运行" class="headerlink" title="使用npm运行"></a>使用npm运行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run text</div></pre></td></tr></table></figure>
+<h3 id="使用CommonJs规范-es2015-语法"><a href="#使用CommonJs规范-es2015-语法" class="headerlink" title="使用CommonJs规范 es2015 语法"></a>使用CommonJs规范 es2015 语法</h3><h4 id="export-import"><a href="#export-import" class="headerlink" title="export / import"></a>export / import</h4><h5 id="导出的写法"><a href="#导出的写法" class="headerlink" title="导出的写法"></a>导出的写法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">export const BaseNews = function()&#123;</div><div class="line">  this.display = function()&#123;</div><div class="line">    console.log(&quot;我是父类&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>导入的写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import &#123;BaseNews&#125; from &quot;./BaseNews.js&quot;</div><div class="line"></div><div class="line">let n = new BaseNews();</div><div class="line">n.display();</div></pre></td></tr></table></figure>
+<h5 id="方式2"><a href="#方式2" class="headerlink" title="方式2"></a>方式2</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const BaseNews = function()&#123;</div><div class="line">  this.display = function()&#123;</div><div class="line">    console.log(&quot;我是父类&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">const version = &quot;1.0&quot;;</div><div class="line"></div><div class="line">export &#123;BaseNews,version&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import &#123;BaseNews,version as v&#125; from &quot;./BaseNews.js&quot;</div><div class="line"></div><div class="line">let n = new BaseNews();</div><div class="line">n.display();</div><div class="line">console.log(v);</div></pre></td></tr></table></figure>
+<h5 id="方式3-常用"><a href="#方式3-常用" class="headerlink" title="方式3(常用)"></a>方式3(常用)</h5><p>每个模块只能有一次default导出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">export default function()&#123;</div><div class="line">  this.display = function()&#123;</div><div class="line">    console.log(&quot;我是父类&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">const version = &quot;1.0&quot;;</div><div class="line"></div><div class="line">export &#123;version&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import BaseNews,&#123;version as v&#125; from &quot;./BaseNews.js&quot;</div><div class="line"></div><div class="line">let n = new BaseNews();</div><div class="line">n.display();</div><div class="line">console.log(v);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import &#123;default as BaseNews,version as v&#125; from &quot;./BaseNews.js&quot;</div><div class="line"></div><div class="line">let n = new BaseNews();</div><div class="line">n.display();</div><div class="line">console.log(v);</div></pre></td></tr></table></figure>
+<p>还可以这样将所有导出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import * as a from &quot;./BaseNews.js&quot;</div><div class="line"></div><div class="line">let n = new a.default();</div><div class="line">n.display();</div><div class="line">console.log(v);</div></pre></td></tr></table></figure>
+<p><strong><em>真是感觉脑子被绕住了，索性记下来</em></strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/node/" rel="tag"># node</a>
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/10/flex布局笔记/" rel="next" title="flex布局笔记">
+                <i class="fa fa-chevron-left"></i> flex布局笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/03/13/走进node/"
+     data-title="走进node (初级)"
+     data-content=""
+     data-url="https://inzaghihao.github.io/2017/03/13/走进node/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/13/走进node/"
+           data-title="走进node (初级)" data-url="https://inzaghihao.github.io/2017/03/13/走进node/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Hao" />
+          <p class="site-author-name" itemprop="name">Hao</p>
+           
+              <p class="site-description motion-element" itemprop="description">自律给我自由</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com" title="Github" target="_blank">Github</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/inzaghihao" title="MyGithub" target="_blank">MyGithub</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://neimengjs.org/" title="内蒙古交流群" target="_blank">内蒙古交流群</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装nodejs"><span class="nav-number">1.</span> <span class="nav-text">安装nodejs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#babel-相关"><span class="nav-number">2.</span> <span class="nav-text">babel 相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在一个新建的文件夹底下初始化配置文件package-json"><span class="nav-number">2.1.</span> <span class="nav-text">在一个新建的文件夹底下初始化配置文件package.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用npm安装babel-客户端工具"><span class="nav-number">2.2.</span> <span class="nav-text">使用npm安装babel 客户端工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装“编译”es2015-相关babel-插件-babel-preset-es2015"><span class="nav-number">2.3.</span> <span class="nav-text">安装“编译”es2015 相关babel 插件 babel-preset-es2015</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在根目录下创建-babelrc-的配置文件"><span class="nav-number">2.4.</span> <span class="nav-text">在根目录下创建.babelrc 的配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置package-json文件运行es2015-文件"><span class="nav-number">2.5.</span> <span class="nav-text">配置package.json文件运行es2015 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用npm运行"><span class="nav-number">2.6.</span> <span class="nav-text">使用npm运行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用CommonJs规范-es2015-语法"><span class="nav-number">3.</span> <span class="nav-text">使用CommonJs规范 es2015 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#export-import"><span class="nav-number">3.1.</span> <span class="nav-text">export / import</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#导出的写法"><span class="nav-number">3.1.1.</span> <span class="nav-text">导出的写法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方式2"><span class="nav-number">3.1.2.</span> <span class="nav-text">方式2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方式3-常用"><span class="nav-number">3.1.3.</span> <span class="nav-text">方式3(常用)</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"inzaghihao"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
