@@ -23,3 +23,7 @@ Intent intent = new Intent();
 intent.setClass(MainActivity.this,Index.class);
 startActivity(intent);`
 ```
+
+### Intent Extra 属性实现页面直接的数据传递
+
+`intent.putExtra(key,value)`

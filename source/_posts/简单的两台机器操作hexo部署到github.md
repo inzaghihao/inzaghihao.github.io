@@ -1,5 +1,5 @@
 ---
-title: 简单的hexo部署到github（上）
+title: 简单的两台机器操作hexo部署到github
 date: 2017-03-06 18:38:52
 tags: [hexo, git, github]
 ---
@@ -21,8 +21,12 @@ $ git branch -a		//检测该分支情况
 ``` bash
 $ git checkout -b dev origin/dev		//创建本地新分支并自动切换至该分支
 ```
+安装依赖
+```
+npm install
+```
 
-#### 将hexo 开发源码拷贝至该目录并上传
+#### 将新机器上的新开发改动的 hexo 开发源码拷贝至该目录并上传
 
 ``` bash
 $ git push origin dev		
@@ -38,4 +42,3 @@ $ hexo g -d
 
 ![分支结构](用Markdown写Markdown笔记/mulu.png "仓库分支结构")
 
-未完待续..

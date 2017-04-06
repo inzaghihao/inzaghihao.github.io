@@ -87,7 +87,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             //filename:__dirname+"/src/dist/index.html",		//目标文件
             filename:"index.html",	
-            template:__dirname+"/src/html/index.html",			//自动生成html文件
+            template:__dirname+"/src/html/index.html",			//模板文件
             inject:"body",			//js注入位置
             hash:true,				//注入js增加随机hash 
             chunks:["index"] 		//注入哪一个js文件
@@ -161,7 +161,7 @@ html 结构
 import Vue from "vue";
 let myname = {
     template:"<div id='me'>my name is {{name}}</div>",
-    data()=>{
+    data:()=>{
         return {
             name :"hao"    
         } 
@@ -204,5 +204,117 @@ new Vue({
     components:{"myname",mynameCom}
 })
 ```
+#### 父子组件之间的通信
+
+每一个组件都有独立的作用域，通过props 值传递参数
+```
+<div class="container">       
+   <myname value="25"></myname> 
+</div>
+
+——————————————————————————————————————
+<style>
+    #myage{color: green;}
+</style>
+<template>
+    <div id="myage">
+        我的年龄是{{value}}
+    </div>
+</template>
+<script>
+    export default {
+        props:['value']
+        data:()=>{
+            return {age:"18"}
+        }
+    }
+</script>
+```
+
+父子组件嵌套
+
+```
+<div class="container">       
+   <me age="25" name="hao"></myname> 
+</div>
+
+————————————————vue——————————————————————
+<template>
+    <div id="me">
+        <myname :name="name"></myname>      //使用v-bind: 指令动态绑定属性值,简写为:
+        <myage :age="age"></myage>
+    </div>
+</template>
+
+<script>
+    import myname from "./myname.vue";
+    import myage from "./myage.vue";
+
+    export default {
+        props:["name","age"],
+        components:{
+            "myname":myname,
+            "myage":myage
+        }
+    }
+
+</script>
+
+————————————————index.js——————————————————————
+
+import me from "./../components/me.vue";
+
+new Vue({
+    el:".container",          //绑定渲染元素
+    components:{"me",me}
+})
+
+```
+
+
+
+
+### webpack配置热加载免刷新
+
+使用webpack-dev-server 是一个小型静态服务器搭建热运行环境，代码修改无需编译和页面刷新进行预览，并不产生任何编译文件，在内存当中运行
+
+#### 安装 `webpack-dev-server` 并配置
+
+```
+entry:{
+    "index":[__dirname+"/src/js/index.js",
+    "webpack-dev-server/client?http://127.0.0.1:8080"]          //配置编译到入口文件当中
+},
+output:{
+    publicPath:"http://127.0.0.1:8080/",        // 设置访问网站和端口
+    path:__dirname+"/src/dist/js",
+    filename:"[name].js"
+},
+// 可单独配置webpack-dev-server
+devServer:{
+    hot:true,
+    inline:true,
+    progress:true,
+    port:8080
+},
+plugins:[
+        new HtmlWebpackPlugin({
+            //filename:__dirname+"/src/dist/index.html",
+            filename:"index.html",          //更改生成路径，热运行直接加载
+            template:__dirname+"/src/html/index.html",
+            inject:"body",
+            hash:true,
+            chunks:["index"]
+        })
+    ]
+```
+运行服务
+```
+webpack-dev-server --inline --hot --content-base ./src/dist"
+
+// 使用inline模式，--hot 热模块替换 --content-base 指定网站目录路径
+```
+
+
 
 
