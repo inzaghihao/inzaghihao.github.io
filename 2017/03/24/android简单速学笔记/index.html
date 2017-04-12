@@ -87,22 +87,22 @@
 
 
 
-<meta name="description" content="android 速学简单语法新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，并且在 setContentView(R.layout.activity_main);设置启动页面
+<meta name="description" content="新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，并且在 setContentView(R.layout.activity_main);设置启动页面
 通过id 找到元素按钮并赋值
-this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.jav">
+this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应的1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android简单速学笔记">
 <meta property="og:url" content="https://inzaghihao.github.io/2017/03/24/android简单速学笔记/index.html">
 <meta property="og:site_name" content="魔都青人">
-<meta property="og:description" content="android 速学简单语法新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，并且在 setContentView(R.layout.activity_main);设置启动页面
+<meta property="og:description" content="新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，并且在 setContentView(R.layout.activity_main);设置启动页面
 通过id 找到元素按钮并赋值
-this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.jav">
-<meta property="og:updated_time" content="2017-04-01T03:20:58.288Z">
+this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应的1">
+<meta property="og:updated_time" content="2017-04-12T01:19:49.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android简单速学笔记">
-<meta name="twitter:description" content="android 速学简单语法新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，并且在 setContentView(R.layout.activity_main);设置启动页面
+<meta name="twitter:description" content="新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，并且在 setContentView(R.layout.activity_main);设置启动页面
 通过id 找到元素按钮并赋值
-this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.jav">
+this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应的1">
 
 
 
@@ -357,14 +357,17 @@ this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id�
       
 
       
-        <h2 id="android-速学简单语法"><a href="#android-速学简单语法" class="headerlink" title="android 速学简单语法"></a>android 速学简单语法</h2><p>新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，<code>并且在 setContentView(R.layout.activity_main);</code>设置启动页面</p>
+        <p>新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，<code>并且在 setContentView(R.layout.activity_main);</code>设置启动页面</p>
 <h3 id="通过id-找到元素按钮并赋值"><a href="#通过id-找到元素按钮并赋值" class="headerlink" title="通过id 找到元素按钮并赋值"></a>通过id 找到元素按钮并赋值</h3><ul>
 <li>this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应的16进制int整型，使用R.id 寻找该元素</li>
 <li>Button btn = (Button)findViewById(R.id.btn) 强制转换成botton 类型的元素</li>
 <li>OnclickListener 绑定监听器</li>
 </ul>
 <h3 id="Intent-类起到了应用之间数据交换的桥梁"><a href="#Intent-类起到了应用之间数据交换的桥梁" class="headerlink" title="Intent 类起到了应用之间数据交换的桥梁"></a>Intent 类起到了应用之间数据交换的桥梁</h3><h4 id="界面之间的跳转-在使用前务必先在AndroidManifest-xml进行注册-lt-activity-android-name-quot-Index-quot-gt-lt-activity-gt"><a href="#界面之间的跳转-在使用前务必先在AndroidManifest-xml进行注册-lt-activity-android-name-quot-Index-quot-gt-lt-activity-gt" class="headerlink" title="界面之间的跳转 在使用前务必先在AndroidManifest.xml进行注册 &lt;activity android:name=&quot;.Index&quot;&gt;&lt;/activity&gt;"></a>界面之间的跳转 在使用前务必先在AndroidManifest.xml进行注册 <code>&lt;activity android:name=&quot;.Index&quot;&gt;&lt;/activity&gt;</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent();</div><div class="line">intent.setClass(MainActivity.this,Index.class);</div><div class="line">startActivity(intent);`</div></pre></td></tr></table></figure>
-<h3 id="Intent-Extra-属性实现页面直接的数据传递"><a href="#Intent-Extra-属性实现页面直接的数据传递" class="headerlink" title="Intent Extra 属性实现页面直接的数据传递"></a>Intent Extra 属性实现页面直接的数据传递</h3><p><code>intent.putExtra(key,value)</code></p>
+<h4 id="Intent-Extra-属性实现页面直接的数据传递"><a href="#Intent-Extra-属性实现页面直接的数据传递" class="headerlink" title="Intent Extra 属性实现页面直接的数据传递"></a>Intent Extra 属性实现页面直接的数据传递</h4><p>通过 <code>intent.putExtra(key,value)</code> 把需要传递的内容放到Extra 中<br>在第二个Activity 中得到Extra<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Intent intent = getIntent();</div><div class="line">intent.getExtras().get(&quot;key&quot;);</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//设置传递</div><div class="line">intent.putExtra(&quot;name&quot;,&quot;hao&quot;);</div><div class="line"></div><div class="line">//获取</div><div class="line">Intent intent =  this.getIntent();</div><div class="line">String name = intent.getExtras().get(&quot;name&quot;).toString();</div><div class="line">((TextView)findViewById(R.id.textView2)).setText(name);</div></pre></td></tr></table></figure>
+<h4 id="Intent-Action-和-Data-属性"><a href="#Intent-Action-和-Data-属性" class="headerlink" title="Intent Action 和 Data 属性"></a>Intent Action 和 Data 属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//设置启动一个网页</div><div class="line">intent.setAction(intent.ACTION_VIEW);</div><div class="line">intent.setData(Uri.parse(&quot;http://www.baidu.com&quot;));</div><div class="line">startActivity(intent);</div><div class="line"></div><div class="line">//设置打电话</div><div class="line">intent.setAction(intent.ACTION_CALL);</div><div class="line">intent.setData(Uri.parse(&quot;tel://110&quot;));</div><div class="line">startActivity(intent);  //启动一个定义的意图</div></pre></td></tr></table></figure>
+<p>如需要权限在 MainActivity.java 文件中 application 标签下加入以下权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.CALL_PHONE&quot;&gt;&lt;/uses-permission&gt;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -591,7 +594,7 @@ this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#android-速学简单语法"><span class="nav-number">1.</span> <span class="nav-text">android 速学简单语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过id-找到元素按钮并赋值"><span class="nav-number">1.1.</span> <span class="nav-text">通过id 找到元素按钮并赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent-类起到了应用之间数据交换的桥梁"><span class="nav-number">1.2.</span> <span class="nav-text">Intent 类起到了应用之间数据交换的桥梁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#界面之间的跳转-在使用前务必先在AndroidManifest-xml进行注册-lt-activity-android-name-quot-Index-quot-gt-lt-activity-gt"><span class="nav-number">1.2.1.</span> <span class="nav-text">界面之间的跳转 在使用前务必先在AndroidManifest.xml进行注册 <activity android:name=".Index"></activity></span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent-Extra-属性实现页面直接的数据传递"><span class="nav-number">1.3.</span> <span class="nav-text">Intent Extra 属性实现页面直接的数据传递</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过id-找到元素按钮并赋值"><span class="nav-number">1.</span> <span class="nav-text">通过id 找到元素按钮并赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent-类起到了应用之间数据交换的桥梁"><span class="nav-number">2.</span> <span class="nav-text">Intent 类起到了应用之间数据交换的桥梁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#界面之间的跳转-在使用前务必先在AndroidManifest-xml进行注册-lt-activity-android-name-quot-Index-quot-gt-lt-activity-gt"><span class="nav-number">2.1.</span> <span class="nav-text">界面之间的跳转 在使用前务必先在AndroidManifest.xml进行注册 <activity android:name=".Index"></activity></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intent-Extra-属性实现页面直接的数据传递"><span class="nav-number">2.2.</span> <span class="nav-text">Intent Extra 属性实现页面直接的数据传递</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intent-Action-和-Data-属性"><span class="nav-number">2.3.</span> <span class="nav-text">Intent Action 和 Data 属性</span></a></li></ol></li></ol></div>
             
 
           </div>
