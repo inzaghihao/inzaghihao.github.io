@@ -29,6 +29,7 @@ if (typeof(Storage) !== "undefined") {
 - JSON.stringify 可以将对象转换为字符串。
 - JSON.parse 方法将字符串转换为 JSON 对象
 
+封装存取本地数据方法
 ```
 var STORAGE_KEY = 'todos-vuejs-2.0'
 var todoStorage = {
@@ -37,7 +38,7 @@ var todoStorage = {
     todos.forEach(function (todo, index) {
       todo.id = index
     })
-    todoStorage.uid = todos.length 		//增加一个key值
+    todoStorage.uid = todos.length 		
     return todos
   },
   save: function (todos) {
@@ -45,6 +46,18 @@ var todoStorage = {
   }
 }
 ```
+使用watch 深度监控todos已存入的数据变化，深度监控可以监控到数组以内对象的属性值，一旦数据发生改变，将最新数据存入到本地存储
+```
+watch: {
+    todos: {
+      handler: function (todos) {		
+        todoStorage.save(todos)
+      },
+      deep: true
+    }
+},
+```
+
 #### 关于逻辑
 
 在任务输入input表单绑定enter事件触发addTodo 方法，addTodo里首先把input输入v-model双向绑定的值得到并去除首尾空格处理，添加到todos数组中，id设置为每条自增，title对应value值，completed初始为false 未被选中状态，直接是数据驱动处理，最后把newTodo的值 设置为空，即input的value 也为空。
@@ -167,6 +180,47 @@ filters: {
 },
 ```
 
+使用hash值 在window 上绑定hashchange 方法进行过滤筛选显示相对应的列表，全部和已完成和未完成，在data中声明visibility: 'all'，当页面发生hash变化时，首先判断是否是有效的hash值，有效则赋值给visibility，无效则为空，默认显示all
 
+```
+// handle routing
+function onHashChange () {
+  var visibility = window.location.hash.replace(/#\/?/, '')
+  if (filters[visibility]) {
+    app.visibility = visibility
+  } else {
+    window.location.hash = ''
+    app.visibility = 'all'
+  }
+}
+//绑定url改变事件
+window.addEventListener('hashchange', onHashChange)
+onHashChange()
+```
+
+列表循环计算属性的值，计算属性通过hash值对应的变化过滤返回对应的数据到filteredTodos 上，并在`<li v-for="todo in filteredTodos">`中循环
+```
+// visibility filters
+var filters = {
+  all: function (todos) {
+    return todos
+  },
+  active: function (todos) {
+    return todos.filter(function (todo) {
+      return !todo.completed
+    })
+  },
+  completed: function (todos) {
+    return todos.filter(function (todo) {
+      return todo.completed
+    })
+  }
+}
+computed: {
+    filteredTodos: function () {
+      return filters[this.visibility](this.todos)
+    },
+}
+```
 
 > 由于本人学识浅薄，记录的是自己所学和自己想法的理解，其中不乏浅显，切勿盲目转载，望查漏补缺~

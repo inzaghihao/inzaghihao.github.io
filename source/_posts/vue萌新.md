@@ -1,5 +1,5 @@
 ---
-title: vue萌新
+title: vue萌新(包含自动化构建工具配置)
 date: 2017-03-28 19:18:28
 tags: [javascript, vue]
 ---
@@ -142,6 +142,8 @@ $ npm run build
 
 ##### 安装vue-loader 并配置可识别.vue 文件
 
+分为全局注册和局部注册
+
 ```
 $ npm install vue-loader --save-dev
 
@@ -154,6 +156,32 @@ html 结构
    <myname></myname> 
 </div>
 ```
+全局注册
+
+```
+Vue.component("myname",{
+    props:["count"],            //组件中不可以改变从父组件中传过来的数据
+    data(){
+        return {
+            inCount:this.count
+        }
+    },
+    template:`
+        <div><h1 @click:"change">我是一个全局注册的组件{{inCount}}</h1></div>
+    `,
+    methods:{
+        change(){
+            this.inCount ++;
+        }
+    }
+})
+
+new Vue({
+    el:".container",
+})
+```
+
+局部注册
 
 方式一
 
@@ -229,6 +257,36 @@ new Vue({
         }
     }
 </script>
+```
+
+Props验证
+```
+// 对象语法，提供校验
+Vue.component('props-demo-advanced', {
+  props: {
+    // 只检测类型
+    height: Number,
+    // 检测类型 + 其他验证
+    age: {
+      type: Number,         //验证类型
+      default: 0,           //默认值
+      required: true,       //必填
+      validator: function (value) {         //自定义验证规则函数 
+        return value >= 0
+      }
+    }
+  }
+})
+```
+
+子组件访问其相邻的兄弟组件
+
+通过this.$parent.$children 获取其父组件下所有的子组件(数组);可通过数组索引,也可以给子组件增加一个索引id ref:name 访问
+
+```
+<myname ref="uname"></myname>
+
+this.$parent.$refs.uname.$data.username         //获取到相邻兄弟组件的属性
 ```
 
 父子组件嵌套
@@ -315,6 +373,113 @@ webpack-dev-server --inline --hot --content-base ./src/dist"
 // 使用inline模式，--hot 热模块替换 --content-base 指定网站目录路径
 ```
 
+使用 webpack --config webpack.dev.config.js 指定要运行的webpack 配置文件
+
+```
+"webpack": "webpack --config webpack.config.js --progress --display-modules --colors --display-reasons"
+
+配置参数，看到打包过程
+```
+
+### 路由插件
+
+简单理解路由就是单页面应用跳转链接的管理
+
+#### 安装
+
+使用cdn `https://unpkg.com/vue-router/dist/vue-router.js` 方式加载在vue后面
+
+```
+npm install vue-router --save-dev
+```
+
+如果在一个模块化工程中使用它，必须要通过 Vue.use() 明确地安装路由功能：
+
+```
+//加载路由
+import VueRouter from 'vue-router';
+
+//使用路由
+Vue.use(VueRouter);
+```
+
+#### 配置路由映射
+
+```
+//设置路由
+const routes = [
+  { path: '/', component: userlogin },      
+  { path: '/news', component: newslist,name:"newslist" },
+  { path: '/newsdetail/:newsid', component: newsdetail,name:"newsdetail" },
+  { path: '/login', component: userlogin,name:"userlogin" },
+  { path: '/eltable', component: eltable,name:"eltable" },
+  { path: '/navbar', component: navbar,name:"navbar" }
+]
+//初始化路由
+const router = new VueRouter({
+   routes 
+})
 
 
+var mv = new Vue({
+    el:".container",
+    router:router,      //配置router key为固定写法
+})
+```
 
+#### 模板中使用
+
+```
+<li class="active"><a href="#/login">登录</a></li>
+<li><a href="#/news">热点新闻</a></li>
+<li><a href="#/eltable">element 测试组件</a></li>
+<li><a href="#/navbar">导航 测试组件</a></li>
+
+```
+
+使用 `<router-link>` 组件支持用户在具有路由功能的应用中（点击）导航。 通过 to 属性指定目标地址，默认渲染成带有正确链接的 `<a>` 标签，可以通过配置 tag 属性生成别的标签.。另外，当目标路由成功激活时，链接元素自动设置一个表示激活的 CSS 类名 .router-link-active
+ 
+ ```
+<router-link to="/login">Go to login</router-link>
+<router-link :to="{name:'newsdetail',params:{newsid:news.newsid}}"> {{news.title}}</router-link>
+ ```
+
+使用 `<router-view></router-view>`  组件是一个 functional 组件，渲染路径匹配到的视图组件。如果 `<router-view>`设置了名称，则会渲染对应的路由配置中 components 下的相应组件。
+
+
+*** 任何插件使用先引入然后用Vue.use() ***
+
+使用 `vue-resource` ajax请求插件,引入加载之后会在全局注册一个$http 的变量
+
+```
+// 在生命周期mounted 中设置post请求带参数。
+mounted(){
+    this.$http.post("http://localhost/vue/text.php",{name:"hao"},{emulateJSON:true}).then(function(res){
+        // alert(res.body);
+    },function(res){
+        //error
+    })
+}
+```
+ajax获取后台新闻内容展示到页面,在php后端接口数据有newsid 字段，根据这个字段进行传值，用 `<router-link>` :to 根据命名路由，通过params带有newsid 参数传值。在detail页面初始化生命周期函数里 用get方式接收地址后带有 this.$route.params 的参数，回调对应的条目，赋值到newsdetail 数据中。然后渲染到页面
+```
+ <h2> <router-link :to="{name:'newsdetail',params:{newsid:news.newsid}}"> {{news.title}}</router-link> <small>{{news.pubtime}}</small></h2>
+```
+```
+created(){
+    this.$http.get("http://localhost/vue/newslist.php?newsid="+this.$route.params.newsid)
+    .then(function(res){
+        this.newsdetail =res.body;
+    },function(res){
+        //error
+    })
+},
+data(){
+    return{
+        newsdetail:{}
+    }
+}
+
+<h2>标题： {{newsdetail.title}}<small>发布时间：{{newsdetail.pubtime}}</small></h2>
+<p> {{newsdetail.desc}} </p>
+```

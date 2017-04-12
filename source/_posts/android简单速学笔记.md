@@ -4,7 +4,6 @@ date: 2017-03-24 18:37:53
 tags: [笔记, android]
 ---
 
-## android 速学简单语法
 
 新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，`并且在 setContentView(R.layout.activity_main);`设置启动页面
 
@@ -24,6 +23,42 @@ intent.setClass(MainActivity.this,Index.class);
 startActivity(intent);`
 ```
 
-### Intent Extra 属性实现页面直接的数据传递
+#### Intent Extra 属性实现页面直接的数据传递
 
-`intent.putExtra(key,value)`
+通过 `intent.putExtra(key,value)` 把需要传递的内容放到Extra 中
+在第二个Activity 中得到Extra
+```
+Intent intent = getIntent();
+intent.getExtras().get("key");
+```
+
+```
+//设置传递
+intent.putExtra("name","hao");
+
+//获取
+Intent intent =  this.getIntent();
+String name = intent.getExtras().get("name").toString();
+((TextView)findViewById(R.id.textView2)).setText(name);
+
+```
+
+#### Intent Action 和 Data 属性
+
+```
+//设置启动一个网页
+intent.setAction(intent.ACTION_VIEW);
+intent.setData(Uri.parse("http://www.baidu.com"));
+startActivity(intent);
+
+//设置打电话
+intent.setAction(intent.ACTION_CALL);
+intent.setData(Uri.parse("tel://110"));
+startActivity(intent);  //启动一个定义的意图
+```
+
+
+如需要权限在 MainActivity.java 文件中 application 标签下加入以下权限
+```
+<uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+```
