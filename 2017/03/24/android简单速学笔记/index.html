@@ -89,20 +89,20 @@
 
 <meta name="description" content="新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，并且在 setContentView(R.layout.activity_main);设置启动页面
 通过id 找到元素按钮并赋值
-this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应的1">
+this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android简单速学笔记">
 <meta property="og:url" content="https://inzaghihao.github.io/2017/03/24/android简单速学笔记/index.html">
 <meta property="og:site_name" content="魔都青人">
 <meta property="og:description" content="新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，并且在 setContentView(R.layout.activity_main);设置启动页面
 通过id 找到元素按钮并赋值
-this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应的1">
-<meta property="og:updated_time" content="2017-04-12T01:19:49.542Z">
+this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应">
+<meta property="og:updated_time" content="2017-04-13T11:55:50.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android简单速学笔记">
 <meta name="twitter:description" content="新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，并且在 setContentView(R.layout.activity_main);设置启动页面
 通过id 找到元素按钮并赋值
-this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应的1">
+this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应">
 
 
 
@@ -359,7 +359,7 @@ this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id�
       
         <p>新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，<code>并且在 setContentView(R.layout.activity_main);</code>设置启动页面</p>
 <h3 id="通过id-找到元素按钮并赋值"><a href="#通过id-找到元素按钮并赋值" class="headerlink" title="通过id 找到元素按钮并赋值"></a>通过id 找到元素按钮并赋值</h3><ul>
-<li>this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应的16进制int整型，使用R.id 寻找该元素</li>
+<li>this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应的16进制int整型，使用R.id 寻找该元素</li>
 <li>Button btn = (Button)findViewById(R.id.btn) 强制转换成botton 类型的元素</li>
 <li>OnclickListener 绑定监听器</li>
 </ul>
@@ -367,7 +367,11 @@ this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id�
 <h4 id="Intent-Extra-属性实现页面直接的数据传递"><a href="#Intent-Extra-属性实现页面直接的数据传递" class="headerlink" title="Intent Extra 属性实现页面直接的数据传递"></a>Intent Extra 属性实现页面直接的数据传递</h4><p>通过 <code>intent.putExtra(key,value)</code> 把需要传递的内容放到Extra 中<br>在第二个Activity 中得到Extra<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Intent intent = getIntent();</div><div class="line">intent.getExtras().get(&quot;key&quot;);</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//设置传递</div><div class="line">intent.putExtra(&quot;name&quot;,&quot;hao&quot;);</div><div class="line"></div><div class="line">//获取</div><div class="line">Intent intent =  this.getIntent();</div><div class="line">String name = intent.getExtras().get(&quot;name&quot;).toString();</div><div class="line">((TextView)findViewById(R.id.textView2)).setText(name);</div></pre></td></tr></table></figure>
 <h4 id="Intent-Action-和-Data-属性"><a href="#Intent-Action-和-Data-属性" class="headerlink" title="Intent Action 和 Data 属性"></a>Intent Action 和 Data 属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//设置启动一个网页</div><div class="line">intent.setAction(intent.ACTION_VIEW);</div><div class="line">intent.setData(Uri.parse(&quot;http://www.baidu.com&quot;));</div><div class="line">startActivity(intent);</div><div class="line"></div><div class="line">//设置打电话</div><div class="line">intent.setAction(intent.ACTION_CALL);</div><div class="line">intent.setData(Uri.parse(&quot;tel://110&quot;));</div><div class="line">startActivity(intent);  //启动一个定义的意图</div></pre></td></tr></table></figure>
-<p>如需要权限在 MainActivity.java 文件中 application 标签下加入以下权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.CALL_PHONE&quot;&gt;&lt;/uses-permission&gt;</div></pre></td></tr></table></figure></p>
+<p>如需要权限在 AndroidManifest.xml 文件中 application 标签下加入以下权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.CALL_PHONE&quot;&gt;&lt;/uses-permission&gt;</div></pre></td></tr></table></figure></p>
+<p>隐式启动界面,在 AndroidManifest.xml 中 设置要启动的界面的 <code>&lt;intent-filter&gt;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;intent-filter&gt;</div><div class="line">    &lt;action android:name=&quot;abc&quot;/&gt;</div><div class="line">    &lt;category android:name=&quot;android.intent.category.DEFAULT&quot;/&gt;</div><div class="line">&lt;/intent-filter&gt;</div><div class="line"></div><div class="line"></div><div class="line">//在第一个界面中设置 setAction 启动即可</div><div class="line">Intent intent = new Intent();</div><div class="line">intent. setAction(&quot;abc&quot;);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
+<p>使用 <code>intent.setClassName(包名,包名+activity 名)</code> 打开外部程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">intent.setClassName(&quot;com.android.deskclock&quot;,&quot;com.android.deskclock.DeskClock&quot;);</div><div class="line"></div><div class="line">intent.setComponent(new ComponentName(&quot;com.android.deskclock&quot;,&quot;com.android.deskclock.DeskClock&quot;));</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -416,8 +420,8 @@ this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/28/vue萌新/" rel="prev" title="vue萌新(包含自动化构建工具配置)">
-                vue萌新(包含自动化构建工具配置) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/28/vue萌新/" rel="prev" title="vue萌新(流行开发套路)">
+                vue萌新(流行开发套路) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
