@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="笔记,android," />
+  <meta name="keywords" content="笔记,小技巧," />
 
 
 
@@ -87,22 +87,31 @@
 
 
 
-<meta name="description" content="新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，并且在 setContentView(R.layout.activity_main);设置启动页面
-通过id 找到元素按钮并赋值
-this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应">
+<meta name="description" content="元素水平垂直居中的几个方法总结。场景假设子元素在父元素中实现水平垂直
+123&amp;lt;div class=&amp;quot;parent&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;son&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+子元素固定宽高
+定位
+
+12.parent&amp;#123;width: 500px;height: 500px;border:2px">
 <meta property="og:type" content="article">
-<meta property="og:title" content="android简单速学笔记">
-<meta property="og:url" content="https://inzaghihao.github.io/2017/03/24/android简单速学笔记/index.html">
+<meta property="og:title" content="元素水平垂直居中">
+<meta property="og:url" content="https://inzaghihao.github.io/2017/04/28/元素水平垂直居中/index.html">
 <meta property="og:site_name" content="魔都青人">
-<meta property="og:description" content="新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，并且在 setContentView(R.layout.activity_main);设置启动页面
-通过id 找到元素按钮并赋值
-this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应">
-<meta property="og:updated_time" content="2017-04-13T11:55:50.215Z">
+<meta property="og:description" content="元素水平垂直居中的几个方法总结。场景假设子元素在父元素中实现水平垂直
+123&amp;lt;div class=&amp;quot;parent&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;son&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+子元素固定宽高
+定位
+
+12.parent&amp;#123;width: 500px;height: 500px;border:2px">
+<meta property="og:updated_time" content="2017-04-28T09:59:13.873Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="android简单速学笔记">
-<meta name="twitter:description" content="新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，并且在 setContentView(R.layout.activity_main);设置启动页面
-通过id 找到元素按钮并赋值
-this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应">
+<meta name="twitter:title" content="元素水平垂直居中">
+<meta name="twitter:description" content="元素水平垂直居中的几个方法总结。场景假设子元素在父元素中实现水平垂直
+123&amp;lt;div class=&amp;quot;parent&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;son&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+子元素固定宽高
+定位
+
+12.parent&amp;#123;width: 500px;height: 500px;border:2px">
 
 
 
@@ -130,13 +139,13 @@ this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id
 
 
 
-  <link rel="canonical" href="https://inzaghihao.github.io/2017/03/24/android简单速学笔记/"/>
+  <link rel="canonical" href="https://inzaghihao.github.io/2017/04/28/元素水平垂直居中/"/>
 
 
 
 
 
-  <title> android简单速学笔记 | 魔都青人 </title>
+  <title> 元素水平垂直居中 | 魔都青人 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -275,7 +284,7 @@ this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://inzaghihao.github.io/2017/03/24/android简单速学笔记/">
+    <link itemprop="mainEntityOfPage" href="https://inzaghihao.github.io/2017/04/28/元素水平垂直居中/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hao">
@@ -296,7 +305,7 @@ this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id
             
             
               
-                android简单速学笔记
+                元素水平垂直居中
               
             
           </h1>
@@ -311,8 +320,8 @@ this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-24T18:37:53+08:00">
-                2017-03-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-28T17:41:51+08:00">
+                2017-04-28
               </time>
             
 
@@ -330,8 +339,8 @@ this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/24/android简单速学笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/24/android简单速学笔记/" itemprop="commentCount"></span>
+                <a href="/2017/04/28/元素水平垂直居中/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/28/元素水平垂直居中/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -357,21 +366,28 @@ this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id
       
 
       
-        <p>新创建的项目自动创建一个activity_main.xml 布局文件和一个MainActivity.java 入口文件，<code>并且在 setContentView(R.layout.activity_main);</code>设置启动页面</p>
-<h3 id="通过id-找到元素按钮并赋值"><a href="#通过id-找到元素按钮并赋值" class="headerlink" title="通过id 找到元素按钮并赋值"></a>通过id 找到元素按钮并赋值</h3><ul>
-<li>this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应的16进制int整型，使用R.id 寻找该元素</li>
-<li>Button btn = (Button)findViewById(R.id.btn) 强制转换成botton 类型的元素</li>
-<li>OnclickListener 绑定监听器</li>
+        <p>元素水平垂直居中的几个方法总结。场景假设子元素在父元素中实现水平垂直</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;parent&quot;&gt;</div><div class="line">    &lt;div class=&quot;son&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h4 id="子元素固定宽高"><a href="#子元素固定宽高" class="headerlink" title="子元素固定宽高"></a>子元素固定宽高</h4><ul>
+<li>定位</li>
 </ul>
-<h3 id="Intent-类起到了应用之间数据交换的桥梁"><a href="#Intent-类起到了应用之间数据交换的桥梁" class="headerlink" title="Intent 类起到了应用之间数据交换的桥梁"></a>Intent 类起到了应用之间数据交换的桥梁</h3><h4 id="界面之间的跳转-在使用前务必先在AndroidManifest-xml进行注册-lt-activity-android-name-quot-Index-quot-gt-lt-activity-gt"><a href="#界面之间的跳转-在使用前务必先在AndroidManifest-xml进行注册-lt-activity-android-name-quot-Index-quot-gt-lt-activity-gt" class="headerlink" title="界面之间的跳转 在使用前务必先在AndroidManifest.xml进行注册 &lt;activity android:name=&quot;.Index&quot;&gt;&lt;/activity&gt;"></a>界面之间的跳转 在使用前务必先在AndroidManifest.xml进行注册 <code>&lt;activity android:name=&quot;.Index&quot;&gt;&lt;/activity&gt;</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = new Intent();</div><div class="line">intent.setClass(MainActivity.this,Index.class);</div><div class="line">startActivity(intent);`</div></pre></td></tr></table></figure>
-<h4 id="Intent-Extra-属性实现页面直接的数据传递"><a href="#Intent-Extra-属性实现页面直接的数据传递" class="headerlink" title="Intent Extra 属性实现页面直接的数据传递"></a>Intent Extra 属性实现页面直接的数据传递</h4><p>通过 <code>intent.putExtra(key,value)</code> 把需要传递的内容放到Extra 中<br>在第二个Activity 中得到Extra<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Intent intent = getIntent();</div><div class="line">intent.getExtras().get(&quot;key&quot;);</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//设置传递</div><div class="line">intent.putExtra(&quot;name&quot;,&quot;hao&quot;);</div><div class="line"></div><div class="line">//获取</div><div class="line">Intent intent =  this.getIntent();</div><div class="line">String name = intent.getExtras().get(&quot;name&quot;).toString();</div><div class="line">((TextView)findViewById(R.id.textView2)).setText(name);</div></pre></td></tr></table></figure>
-<h4 id="Intent-Action-和-Data-属性"><a href="#Intent-Action-和-Data-属性" class="headerlink" title="Intent Action 和 Data 属性"></a>Intent Action 和 Data 属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//设置启动一个网页</div><div class="line">intent.setAction(intent.ACTION_VIEW);</div><div class="line">intent.setData(Uri.parse(&quot;http://www.baidu.com&quot;));</div><div class="line">startActivity(intent);</div><div class="line"></div><div class="line">//设置打电话</div><div class="line">intent.setAction(intent.ACTION_CALL);</div><div class="line">intent.setData(Uri.parse(&quot;tel://110&quot;));</div><div class="line">startActivity(intent);  //启动一个定义的意图</div></pre></td></tr></table></figure>
-<p>如需要权限在 AndroidManifest.xml 文件中 application 标签下加入以下权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.CALL_PHONE&quot;&gt;&lt;/uses-permission&gt;</div></pre></td></tr></table></figure></p>
-<p>隐式启动界面,在 AndroidManifest.xml 中 设置要启动的界面的 <code>&lt;intent-filter&gt;</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;intent-filter&gt;</div><div class="line">    &lt;action android:name=&quot;abc&quot;/&gt;</div><div class="line">    &lt;category android:name=&quot;android.intent.category.DEFAULT&quot;/&gt;</div><div class="line">&lt;/intent-filter&gt;</div><div class="line"></div><div class="line"></div><div class="line">//在第一个界面中设置 setAction 启动即可</div><div class="line">Intent intent = new Intent();</div><div class="line">intent. setAction(&quot;abc&quot;);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
-<p>使用 <code>intent.setClassName(包名,包名+activity 名)</code> 打开外部程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">intent.setClassName(&quot;com.android.deskclock&quot;,&quot;com.android.deskclock.DeskClock&quot;);</div><div class="line"></div><div class="line">intent.setComponent(new ComponentName(&quot;com.android.deskclock&quot;,&quot;com.android.deskclock.DeskClock&quot;));</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.parent&#123;width: 500px;height: 500px;border:2px solid #000;position:relative;&#125;</div><div class="line">.son&#123;width: 200px;height: 200px;position: absolute;top: 50%;left:50%;margin-top:-100px;margin-left:-100px;&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>定位（也适用于不固定宽高内联元素，比如图片）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.parent&#123;width: 500px;height: 500px;border:2px solid #000;position:relative;&#125;</div><div class="line">.son&#123;width: 200px;height: 200px;position: absolute;top: 0;left:0;bottom:0;right:0;margin:auto;&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>父元素table-cell 方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.parent&#123;width: 500px;height: 500px;border:2px solid #000;text-align: center;display: table-cell;vertical-align: middle;&#125;</div><div class="line">.son&#123;width: 200px;height: 200px; background: red;margin: auto;&#125;</div></pre></td></tr></table></figure>
+<h4 id="子元素不固定宽高"><a href="#子元素不固定宽高" class="headerlink" title="子元素不固定宽高"></a>子元素不固定宽高</h4><ul>
+<li>定位 transform (兼容性ie10+)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.parent&#123;width: 500px;height: 500px;border:2px solid #000;position:relative;&#125;</div><div class="line">.son&#123;position: absolute;top: 50%;left:50%;transform: translate(-50%,-50%);&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>父元素table-cell 方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.parent&#123;width: 500px;height: 500px;border:2px solid #000;text-align: center;display: table-cell;vertical-align: middle;&#125;</div><div class="line">.son&#123; background: red;margin: auto;&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -397,7 +413,7 @@ this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id
           
             <a href="/tags/笔记/" rel="tag"># 笔记</a>
           
-            <a href="/tags/android/" rel="tag"># android</a>
+            <a href="/tags/小技巧/" rel="tag"># 小技巧</a>
           
         </div>
       
@@ -410,8 +426,8 @@ this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/24/锚点链接过渡动画/" rel="next" title="锚点链接过渡动画">
-                <i class="fa fa-chevron-left"></i> 锚点链接过渡动画
+              <a href="/2017/04/19/jq插件-tab选项卡/" rel="next" title="jq插件-tab选项卡">
+                <i class="fa fa-chevron-left"></i> jq插件-tab选项卡
               </a>
             
           </div>
@@ -419,10 +435,6 @@ this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/28/vue萌新/" rel="prev" title="vue萌新(流行开发套路)">
-                vue萌新(流行开发套路) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -437,10 +449,10 @@ this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/03/24/android简单速学笔记/"
-     data-title="android简单速学笔记"
+        <div class="ds-share flat" data-thread-key="2017/04/28/元素水平垂直居中/"
+     data-title="元素水平垂直居中"
      data-content=""
-     data-url="https://inzaghihao.github.io/2017/03/24/android简单速学笔记/">
+     data-url="https://inzaghihao.github.io/2017/04/28/元素水平垂直居中/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -467,8 +479,8 @@ this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/24/android简单速学笔记/"
-           data-title="android简单速学笔记" data-url="https://inzaghihao.github.io/2017/03/24/android简单速学笔记/">
+      <div class="ds-thread" data-thread-key="2017/04/28/元素水平垂直居中/"
+           data-title="元素水平垂直居中" data-url="https://inzaghihao.github.io/2017/04/28/元素水平垂直居中/">
       </div>
     
   </div>
@@ -598,7 +610,7 @@ this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过id-找到元素按钮并赋值"><span class="nav-number">1.</span> <span class="nav-text">通过id 找到元素按钮并赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent-类起到了应用之间数据交换的桥梁"><span class="nav-number">2.</span> <span class="nav-text">Intent 类起到了应用之间数据交换的桥梁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#界面之间的跳转-在使用前务必先在AndroidManifest-xml进行注册-lt-activity-android-name-quot-Index-quot-gt-lt-activity-gt"><span class="nav-number">2.1.</span> <span class="nav-text">界面之间的跳转 在使用前务必先在AndroidManifest.xml进行注册 <activity android:name=".Index"></activity></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intent-Extra-属性实现页面直接的数据传递"><span class="nav-number">2.2.</span> <span class="nav-text">Intent Extra 属性实现页面直接的数据传递</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intent-Action-和-Data-属性"><span class="nav-number">2.3.</span> <span class="nav-text">Intent Action 和 Data 属性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#子元素固定宽高"><span class="nav-number">1.</span> <span class="nav-text">子元素固定宽高</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#子元素不固定宽高"><span class="nav-number">2.</span> <span class="nav-text">子元素不固定宽高</span></a></li></ol></div>
             
 
           </div>
