@@ -1,0 +1,822 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="笔记,搬运," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在移动端，判断横竖屏的场景并不少见，比如根据横竖屏以不同的样式来适配，抑或是提醒用户切换为竖屏以保持良好的用户体验。
+CSS Media Queries通过媒体查询的方式，我们可以通过以下方法来实现根据横竖屏不同的情况来适配样式：
+1.内联样式
+123456@media screen and (orientation:portrait) &amp;#123;    /*竖屏*/&amp;#125;@media s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="判断横竖屏">
+<meta property="og:url" content="https://inzaghihao.github.io/2017/05/03/判断横竖屏/index.html">
+<meta property="og:site_name" content="魔都青人">
+<meta property="og:description" content="在移动端，判断横竖屏的场景并不少见，比如根据横竖屏以不同的样式来适配，抑或是提醒用户切换为竖屏以保持良好的用户体验。
+CSS Media Queries通过媒体查询的方式，我们可以通过以下方法来实现根据横竖屏不同的情况来适配样式：
+1.内联样式
+123456@media screen and (orientation:portrait) &amp;#123;    /*竖屏*/&amp;#125;@media s">
+<meta property="og:image" content="https://inzaghihao.github.io/2017/05/03/判断横竖屏/portrait.jpg">
+<meta property="og:image" content="https://inzaghihao.github.io/2017/05/03/判断横竖屏/landscape.jpg">
+<meta property="og:updated_time" content="2017-05-03T03:42:15.827Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="判断横竖屏">
+<meta name="twitter:description" content="在移动端，判断横竖屏的场景并不少见，比如根据横竖屏以不同的样式来适配，抑或是提醒用户切换为竖屏以保持良好的用户体验。
+CSS Media Queries通过媒体查询的方式，我们可以通过以下方法来实现根据横竖屏不同的情况来适配样式：
+1.内联样式
+123456@media screen and (orientation:portrait) &amp;#123;    /*竖屏*/&amp;#125;@media s">
+<meta name="twitter:image" content="https://inzaghihao.github.io/2017/05/03/判断横竖屏/portrait.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inzaghihao.github.io/2017/05/03/判断横竖屏/"/>
+
+
+
+
+
+  <title> 判断横竖屏 | 魔都青人 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">魔都青人</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">dream for here</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://inzaghihao.github.io/2017/05/03/判断横竖屏/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="魔都青人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                判断横竖屏
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-03T10:57:18+08:00">
+                2017-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/03/判断横竖屏/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/03/判断横竖屏/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在移动端，判断横竖屏的场景并不少见，比如根据横竖屏以不同的样式来适配，抑或是提醒用户切换为竖屏以保持良好的用户体验。</p>
+<h3 id="CSS-Media-Queries"><a href="#CSS-Media-Queries" class="headerlink" title="CSS Media Queries"></a>CSS Media Queries</h3><p>通过媒体查询的方式，我们可以通过以下方法来实现根据横竖屏不同的情况来适配样式：</p>
+<p>1.内联样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@media screen and (orientation:portrait) &#123;</div><div class="line">    /*竖屏*/</div><div class="line">&#125;</div><div class="line">@media screen and (orientation:landscape) &#123;</div><div class="line">    /*横屏*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.外联样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 竖屏 --&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; media=&quot;all and (orientation:portrait)&quot; href=&quot;...&quot; /&gt;</div><div class="line">&lt;!-- 横屏 --&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; media=&quot;all and (orientation:landscape)&quot; href=&quot;...&quot; /&gt;</div></pre></td></tr></table></figure>
+<h3 id="window-matchMedia"><a href="#window-matchMedia" class="headerlink" title="window.matchMedia()"></a>window.matchMedia()</h3><p>除此之外，CSS Object Model（CSSOM）Views 规范增加了对 JavaScript 操作 CSS Media Queries 的原生支持，它在 window 对象下增加了 matchMedia() 方法，让我们能够通过脚本的方式来实现媒体查询。</p>
+<p>window.matchMedia() 方法接受一个 Media Queries 语句的字符串作为参数，返回一个 MediaQueryList 对象。该对象有 media 和 matches 两个属性：</p>
+<ul>
+<li>media：返回所查询的 Media Queries 语句字符串</li>
+<li>matches：返回一个布尔值，表示当前环境是否匹配查询语句</li>
+</ul>
+<p>同时，它还包含了两个方法，用来监听事件：</p>
+<ul>
+<li>addListener(callback)：绑定回调 callback 函数</li>
+<li>removeListener(callback)：注销回调 callback 函数</li>
+</ul>
+<p>那么，通过 window.matchMedia() 的方法，我们可以这样判断横竖屏：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var mql = window.matchMedia(&quot;(orientation: portrait)&quot;);</div><div class="line">function onMatchMeidaChange(mql)&#123;</div><div class="line">    if(mql.matches) &#123;</div><div class="line">        // 竖屏</div><div class="line">    &#125;else &#123;</div><div class="line">        // 横屏</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">onMatchMeidaChange(mql);</div><div class="line">mql.addListener(onMatchMeidaChange);</div></pre></td></tr></table></figure>
+<h3 id="window-innerHeight-window-innerWidth"><a href="#window-innerHeight-window-innerWidth" class="headerlink" title="window.innerHeight/window.innerWidth"></a>window.innerHeight/window.innerWidth</h3><blockquote>
+<p>The ‘orientation’ media feature is ‘portrait’ when the value of the ‘height’ media feature is greater than or equal to the value of the ‘width’ media feature. Otherwise ‘orientation’ is ‘landscape’.<br>—— CSS/Mediaqueries/orientation</p>
+</blockquote>
+<p>在 CSS Media Queries 中，Orientation 属性有两个值：</p>
+<ul>
+<li>portrait，指的是当 height 大于等于 width 的情况 （即竖屏）</li>
+<li>landscape，指的是当 height 小于 width 的情况 （即横屏）</li>
+</ul>
+<p>所以，还有一种最为常见的方法是通过比较页面的宽高，当页面的高大于等于宽时则认为是竖屏，反之则为横屏。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function detectOrient()&#123;</div><div class="line">    if(window.innerHeight &gt;= window.innerWidth) &#123;</div><div class="line">        // 竖屏</div><div class="line">    &#125;else &#123;</div><div class="line">        // 横屏 </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">detectOrient();</div><div class="line">window.addEventListener(&apos;resize&apos;,detectOrient);</div></pre></td></tr></table></figure>
+<h3 id="window-orientation"><a href="#window-orientation" class="headerlink" title="window.orientation"></a>window.orientation</h3><p>在 iOS 平台以及大部分 Android 手机都有支持 window.orientation 这个属性，它返回一个与默认屏幕方向偏离的角度值：</p>
+<ul>
+<li>0：代表此时是默认屏幕方向</li>
+<li>90：代表顺时针偏离默认屏幕方向90度</li>
+<li>-90：代表逆时针偏离默认屏幕方向90度</li>
+<li>180：代表偏离默认屏幕方向180度</li>
+</ul>
+<p>在实际应用中，对于 iPhone 和大部分 Android 是没有180度的手机竖屏翻转的情况的，但是 iPad 是存在的。所以，简化下代码，我们可以绑定orientationchange事件来判断横竖屏：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function detectOrient()&#123;</div><div class="line">    if (Math.abs(window.orientation) === 90) &#123;</div><div class="line">        // 横屏</div><div class="line">    &#125; else &#123;</div><div class="line">        // 竖屏</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">detectOrient();</div><div class="line">window.addEventListener(&apos;orientationchange&apos;,detectOrient);</div></pre></td></tr></table></figure>
+<h3 id="影响判断的问题所在"><a href="#影响判断的问题所在" class="headerlink" title="影响判断的问题所在"></a>影响判断的问题所在</h3><h4 id="1-对window-orientation属性值的不一致"><a href="#1-对window-orientation属性值的不一致" class="headerlink" title="1.对window.orientation属性值的不一致"></a>1.对window.orientation属性值的不一致</h4><p>在 iOS 平台，对 window.orientation 属性值是无异议的，规范当中有明确规定每个值对应的情况。但是对于 Android 平台，就有不一致的特殊情况出现。针对这种不一致情况的出现，对于追求完美的开发者来说，通过 window.orientation 的方法来判断横竖屏则变得有点不可靠的。</p>
+<h4 id="2-软键盘的弹出"><a href="#2-软键盘的弹出" class="headerlink" title="2.软键盘的弹出"></a>2.软键盘的弹出</h4><p>是否除了 window.orientation 的其它方法都是可靠的呢？<br>然而，实际上是事与愿违的。在 Android 下，如果页面中出现软键盘弹出的情况（存在有 Input 的元素）时，页面有时会因为软键盘的弹出而导致页面回缩，即页面的宽度（竖屏时）或者高度（横屏时）被改变。<br>无论是 CSS Media Queries 还是 window.matchMedia() 方法，还是根据 window.innerWidth、window.innerHeight的页面宽高比对方法来实现的横竖屏判断方法，都会因此受到影响，出现判断失误的情况（ Samsung SCH-i699 机型，在竖屏时由于软键盘弹出导致页面高度小于宽度，被错误地判定为横屏）。<br>所以，在这样的情况下，这几种方式也变得不可靠。</p>
+<h3 id="探讨最佳实现方式"><a href="#探讨最佳实现方式" class="headerlink" title="探讨最佳实现方式"></a>探讨最佳实现方式</h3><p>如果你没有遇上以上两个问题所在，恭喜你！上面所提到的方法都可以被应用，选择你最为喜欢的方法就好。</p>
+<p>经过实际情况的研究，针对开发环境兼容的情况（ iOS 与 Android 下的微信内置浏览器与原生浏览器）来说，屏幕分辨率是不会改变的，那么我们可以尝试比对页面宽高和屏幕分辨率来判断横竖屏。</p>
+<ul>
+<li>若获取 当前页面的宽（document.documentElement.clientWidth），等于屏幕分辨率的宽(screen.width)，则可认定当前属于竖屏。</li>
+</ul>
+<p><img src="/2017/05/03/判断横竖屏/portrait.jpg" alt="竖屏"></p>
+<ul>
+<li>若获取 当前页面的宽（document.documentElement.clientWidth），等于屏幕分辨率的高(screen.height)，则可认定当前属于横屏。</li>
+</ul>
+<p><img src="/2017/05/03/判断横竖屏/landscape.jpg" alt="横屏"></p>
+<p>（图为以 iPhone 6s 横屏下的微信内置浏览器为例的截图）</p>
+<p>如此，对应的代码为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">// 判断横竖屏</div><div class="line">var utils = &#123;</div><div class="line">    debounce: function(func,delay)&#123;</div><div class="line">        var timer = null;</div><div class="line">        return function()&#123;</div><div class="line">            var context = this,</div><div class="line">                args = arguments;</div><div class="line">            clearTimeout(timer);</div><div class="line">            timer = setTimeout(function()&#123;</div><div class="line">                func.apply(context,args);</div><div class="line">            &#125;,delay);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function detectOrient() &#123;</div><div class="line">    var storage = localStorage; // 不一定要使用localStorage，其他存储数据的手段都可以</div><div class="line">    var data = storage.getItem(&apos;J-recordOrientX&apos;);</div><div class="line">    var cw = document.documentElement.clientWidth;</div><div class="line">    var _Width = 0,</div><div class="line">        _Height = 0;</div><div class="line">    if(!data) &#123;</div><div class="line">        sw = window.screen.width;</div><div class="line">        sh = window.screen.height;</div><div class="line">        // 2.在某些机型（如华为P9）下出现 srceen.width/height 值交换，所以进行大小值比较判断</div><div class="line">        _Width = sw &lt; sh ? sw : sh;</div><div class="line">        _Height = sw &gt;= sh ? sw : sh;</div><div class="line">        storage.setItem(&apos;J-recordOrientX&apos;,_Width + &apos;,&apos; + _Height);</div><div class="line">    &#125;else &#123;</div><div class="line">        var str = data.split(&apos;,&apos;);</div><div class="line">        _Width = str[0];</div><div class="line">        _Height = str[1];</div><div class="line">    &#125;</div><div class="line">    if(cw == _Width) &#123;</div><div class="line">        // 竖屏</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    if(cw == _Height)&#123;</div><div class="line">        // 横屏</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 3.函数去抖处理</div><div class="line">window.onresize = utils.debounce(detectOrient,300);</div><div class="line">detectOrient();</div></pre></td></tr></table></figure>
+<p><a href="http://jdc.jd.com/archives/3862" target="_blank" rel="external">原文链接</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+            <a href="/tags/搬运/" rel="tag"># 搬运</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/28/元素水平垂直居中/" rel="next" title="元素水平垂直居中">
+                <i class="fa fa-chevron-left"></i> 元素水平垂直居中
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/16/假分页/" rel="prev" title="假分页">
+                假分页 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/05/03/判断横竖屏/"
+     data-title="判断横竖屏"
+     data-content=""
+     data-url="https://inzaghihao.github.io/2017/05/03/判断横竖屏/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/03/判断横竖屏/"
+           data-title="判断横竖屏" data-url="https://inzaghihao.github.io/2017/05/03/判断横竖屏/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Hao" />
+          <p class="site-author-name" itemprop="name">Hao</p>
+           
+              <p class="site-description motion-element" itemprop="description">自律给我自由</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com" title="Github" target="_blank">Github</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/inzaghihao" title="MyGithub" target="_blank">MyGithub</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://neimengjs.org/" title="内蒙古交流群" target="_blank">内蒙古交流群</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-Media-Queries"><span class="nav-number">1.</span> <span class="nav-text">CSS Media Queries</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window-matchMedia"><span class="nav-number">2.</span> <span class="nav-text">window.matchMedia()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window-innerHeight-window-innerWidth"><span class="nav-number">3.</span> <span class="nav-text">window.innerHeight/window.innerWidth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window-orientation"><span class="nav-number">4.</span> <span class="nav-text">window.orientation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#影响判断的问题所在"><span class="nav-number">5.</span> <span class="nav-text">影响判断的问题所在</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-对window-orientation属性值的不一致"><span class="nav-number">5.1.</span> <span class="nav-text">1.对window.orientation属性值的不一致</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-软键盘的弹出"><span class="nav-number">5.2.</span> <span class="nav-text">2.软键盘的弹出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#探讨最佳实现方式"><span class="nav-number">6.</span> <span class="nav-text">探讨最佳实现方式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"inzaghihao"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
