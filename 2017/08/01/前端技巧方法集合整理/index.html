@@ -1,0 +1,753 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="手机号码正则验证方法12345// 验证手机号方法function isPhoneNo(phone) &amp;#123;   var pattern = /^1[34578]\d&amp;#123;9&amp;#125;$/;   return pattern.test(phone); &amp;#125;
+发送验证码倒计时1234567891011121314151617181920212223242526272829303">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端技巧方法集合整理">
+<meta property="og:url" content="https://inzaghihao.github.io/2017/08/01/前端技巧方法集合整理/index.html">
+<meta property="og:site_name" content="魔都青人">
+<meta property="og:description" content="手机号码正则验证方法12345// 验证手机号方法function isPhoneNo(phone) &amp;#123;   var pattern = /^1[34578]\d&amp;#123;9&amp;#125;$/;   return pattern.test(phone); &amp;#125;
+发送验证码倒计时1234567891011121314151617181920212223242526272829303">
+<meta property="og:updated_time" content="2017-08-01T09:04:15.413Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端技巧方法集合整理">
+<meta name="twitter:description" content="手机号码正则验证方法12345// 验证手机号方法function isPhoneNo(phone) &amp;#123;   var pattern = /^1[34578]\d&amp;#123;9&amp;#125;$/;   return pattern.test(phone); &amp;#125;
+发送验证码倒计时1234567891011121314151617181920212223242526272829303">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://inzaghihao.github.io/2017/08/01/前端技巧方法集合整理/"/>
+
+
+
+
+
+  <title> 前端技巧方法集合整理 | 魔都青人 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">魔都青人</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">dream for here</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://inzaghihao.github.io/2017/08/01/前端技巧方法集合整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="魔都青人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端技巧方法集合整理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-01T15:44:41+08:00">
+                2017-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/01/前端技巧方法集合整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/01/前端技巧方法集合整理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="手机号码正则验证方法"><a href="#手机号码正则验证方法" class="headerlink" title="手机号码正则验证方法"></a>手机号码正则验证方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 验证手机号方法</div><div class="line">function isPhoneNo(phone) &#123; </div><div class="line">  var pattern = /^1[34578]\d&#123;9&#125;$/; </div><div class="line">  return pattern.test(phone); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="发送验证码倒计时"><a href="#发送验证码倒计时" class="headerlink" title="发送验证码倒计时"></a>发送验证码倒计时</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">var intDiff = parseInt(60);	//倒计时时总秒数量</div><div class="line">function timer(intDiff)&#123;</div><div class="line">  $(&quot;.yzm-btn&quot;).html(&quot;重发获取(&quot;+intDiff+&quot;)&quot;).addClass(&quot;gray&quot;);</div><div class="line">  var times = setInterval(function()&#123;</div><div class="line">      intDiff--;</div><div class="line">      $(&quot;.yzm-btn&quot;).html(&quot;重发获取(&quot;+intDiff+&quot;)&quot;);</div><div class="line">      if(intDiff&lt;=0)&#123;</div><div class="line">          clearInterval(times);</div><div class="line">          $(&quot;.yzm-btn&quot;).html(&quot;重新获取&quot;).on(&quot;click&quot;,get_yzm).removeClass(&quot;gray&quot;);</div><div class="line">      &#125;</div><div class="line">  &#125;, 1000);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 验证码方法</div><div class="line">function get_yzm()&#123;</div><div class="line">  if($(&quot;.phone-login input[type=&apos;tel&apos;]&quot;).val() == &quot;&quot;)&#123;</div><div class="line">    $(&quot;.phone-error&quot;).show();</div><div class="line">    setTimeout(function()&#123;</div><div class="line">      $(&quot;.phone-error&quot;).hide();</div><div class="line">    &#125;,1000)</div><div class="line">    return;</div><div class="line">  &#125;</div><div class="line">  if(!isPhoneNo($(&apos;.phone-login input[type=&quot;tel&quot;]&apos;).val()))&#123;</div><div class="line">    $(&quot;.phone-error&quot;).show();</div><div class="line">    setTimeout(function()&#123;</div><div class="line">      $(&quot;.phone-error&quot;).hide();</div><div class="line">    &#125;,2000)</div><div class="line">    return;</div><div class="line">  &#125;</div><div class="line">  $(&quot;.yzm-btn&quot;).off(&quot;click&quot;);</div><div class="line">  timer(intDiff);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 点击获取验证码</div><div class="line">$(&quot;.yzm-btn&quot;).on(&quot;click&quot;,get_yzm);</div></pre></td></tr></table></figure>
+<h4 id="监听input改变"><a href="#监听input改变" class="headerlink" title="监听input改变"></a>监听input改变</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 监听手机登录的input改变</div><div class="line">$(&apos;.phone-login input&apos;).on(&apos;input propertychange&apos;, function() &#123;  </div><div class="line">    if($(this).val()!=&quot;&quot;)&#123;</div><div class="line">      $(&quot;.next-btn a&quot;).addClass(&quot;canAble&quot;).off(&quot;click&quot;).on(&quot;click&quot;,nextStepFun);    //按钮变亮可点击</div><div class="line">    &#125;else&#123;</div><div class="line">      $(&quot;.next-btn a&quot;).removeClass(&quot;canAble&quot;).off(&quot;click&quot;);    //按钮变灰不可点击</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="元素滚动到顶部固定定位"><a href="#元素滚动到顶部固定定位" class="headerlink" title="元素滚动到顶部固定定位"></a>元素滚动到顶部固定定位</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//元素滚动跟随</div><div class="line">var eleTop = $(&quot;.details_title&quot;).offset().top;	//获取元素距离顶部的距离</div><div class="line">$(window).scroll(function ()&#123;</div><div class="line">    if (eleTop &lt;= $(window).scrollTop())&#123;</div><div class="line">        $(&quot;.details_title&quot;).addClass(&quot;fixed&quot;);	// 如果元素到达顶部添加定位</div><div class="line">        $(&quot;.comment_list&quot;).addClass(&quot;pt4&quot;);	// 下面的元素增加与定位元素高度的距离</div><div class="line">    &#125; else &#123;</div><div class="line">        $(&quot;.details_title&quot;).removeClass(&quot;fixed&quot;);</div><div class="line">        $(&quot;.comment_list&quot;).removeClass(&quot;pt4&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">------------------------------------------------------------------------</div><div class="line">方法2：</div><div class="line">var elHeight = $(&quot;.classification&quot;).outerHeight();	//获取元素的高度</div><div class="line">$(window).scroll(function()&#123;</div><div class="line">	if($(window).scrollTop() &gt;= elHeight)&#123;</div><div class="line">		$(&quot;.classification&quot;).addClass(&quot;fixed&quot;);</div><div class="line">		$(&quot;.classification-list&quot;).addClass(&quot;mart&quot;);</div><div class="line">	&#125;else&#123;</div><div class="line">		$(&quot;.classification&quot;).removeClass(&quot;fixed&quot;);</div><div class="line">		$(&quot;.classification-list&quot;).removeClass(&quot;mart&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="顶部导航滚动条-iScroll插件滚动"><a href="#顶部导航滚动条-iScroll插件滚动" class="headerlink" title="顶部导航滚动条 iScroll插件滚动"></a>顶部导航滚动条 iScroll插件滚动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;header&quot; id=&quot;wrapper1&quot;&gt;</div><div class="line">    &lt;ul class=&quot;category-nav&quot;&gt;	//设置高度样式</div><div class="line">        &lt;!-- &lt;li&gt;导航分类&lt;/li&gt; --&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">// js</div><div class="line">$(&quot;.category-nav&quot;).append(str);	//ajax获取添加到分类列表中</div><div class="line">var all_width = document.getElementsByClassName(&apos;category-nav&apos;)[0].scrollWidth;	//获取当前实际宽度</div><div class="line">$(&apos;.category-nav&apos;).css(&#123;</div><div class="line">    &apos;width&apos;:all_width + &apos;px&apos;</div><div class="line">&#125;);</div><div class="line">var myscroll= new iScroll(&quot;wrapper1&quot;,&#123;	//初始化滚动条</div><div class="line">    scrollX: true,  </div><div class="line">    scrollY: false, </div><div class="line">    hScrollbar:false,</div><div class="line">    vScrollbar : false,</div><div class="line">    vScroll:false</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="时间戳转换格式函数-00-00"><a href="#时间戳转换格式函数-00-00" class="headerlink" title="时间戳转换格式函数 00:00"></a>时间戳转换格式函数 00:00</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function stom(t) &#123;</div><div class="line">    var m = Math.floor(t / 60);</div><div class="line">    m &lt; 10 &amp;&amp; (m = &apos;0&apos; + m);</div><div class="line">    return m + &quot;:&quot; + (t % 60 / 100).toFixed(2).slice(-2);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/20/布局技巧/" rel="next" title="布局技巧">
+                <i class="fa fa-chevron-left"></i> 布局技巧
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/08/01/前端技巧方法集合整理/"
+     data-title="前端技巧方法集合整理"
+     data-content=""
+     data-url="https://inzaghihao.github.io/2017/08/01/前端技巧方法集合整理/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/01/前端技巧方法集合整理/"
+           data-title="前端技巧方法集合整理" data-url="https://inzaghihao.github.io/2017/08/01/前端技巧方法集合整理/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Hao" />
+          <p class="site-author-name" itemprop="name">Hao</p>
+           
+              <p class="site-description motion-element" itemprop="description">自律给我自由</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com" title="Github" target="_blank">Github</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/inzaghihao" title="MyGithub" target="_blank">MyGithub</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://neimengjs.org/" title="内蒙古交流群" target="_blank">内蒙古交流群</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#手机号码正则验证方法"><span class="nav-number">1.</span> <span class="nav-text">手机号码正则验证方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送验证码倒计时"><span class="nav-number">2.</span> <span class="nav-text">发送验证码倒计时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监听input改变"><span class="nav-number">3.</span> <span class="nav-text">监听input改变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素滚动到顶部固定定位"><span class="nav-number">4.</span> <span class="nav-text">元素滚动到顶部固定定位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顶部导航滚动条-iScroll插件滚动"><span class="nav-number">5.</span> <span class="nav-text">顶部导航滚动条 iScroll插件滚动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间戳转换格式函数-00-00"><span class="nav-number">6.</span> <span class="nav-text">时间戳转换格式函数 00:00</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"inzaghihao"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
