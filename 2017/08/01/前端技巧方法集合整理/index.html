@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="魔都青人">
 <meta property="og:description" content="手机号码正则验证方法12345// 验证手机号方法function isPhoneNo(phone) &amp;#123;   var pattern = /^1[34578]\d&amp;#123;9&amp;#125;$/;   return pattern.test(phone); &amp;#125;
 发送验证码倒计时1234567891011121314151617181920212223242526272829303">
-<meta property="og:updated_time" content="2017-08-01T09:04:15.413Z">
+<meta property="og:updated_time" content="2017-10-11T08:03:36.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端技巧方法集合整理">
 <meta name="twitter:description" content="手机号码正则验证方法12345// 验证手机号方法function isPhoneNo(phone) &amp;#123;   var pattern = /^1[34578]\d&amp;#123;9&amp;#125;$/;   return pattern.test(phone); &amp;#125;
@@ -322,16 +322,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/08/01/前端技巧方法集合整理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/01/前端技巧方法集合整理/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -360,6 +350,7 @@
 <h4 id="元素滚动到顶部固定定位"><a href="#元素滚动到顶部固定定位" class="headerlink" title="元素滚动到顶部固定定位"></a>元素滚动到顶部固定定位</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//元素滚动跟随</div><div class="line">var eleTop = $(&quot;.details_title&quot;).offset().top;	//获取元素距离顶部的距离</div><div class="line">$(window).scroll(function ()&#123;</div><div class="line">    if (eleTop &lt;= $(window).scrollTop())&#123;</div><div class="line">        $(&quot;.details_title&quot;).addClass(&quot;fixed&quot;);	// 如果元素到达顶部添加定位</div><div class="line">        $(&quot;.comment_list&quot;).addClass(&quot;pt4&quot;);	// 下面的元素增加与定位元素高度的距离</div><div class="line">    &#125; else &#123;</div><div class="line">        $(&quot;.details_title&quot;).removeClass(&quot;fixed&quot;);</div><div class="line">        $(&quot;.comment_list&quot;).removeClass(&quot;pt4&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">------------------------------------------------------------------------</div><div class="line">方法2：</div><div class="line">var elHeight = $(&quot;.classification&quot;).outerHeight();	//获取元素的高度</div><div class="line">$(window).scroll(function()&#123;</div><div class="line">	if($(window).scrollTop() &gt;= elHeight)&#123;</div><div class="line">		$(&quot;.classification&quot;).addClass(&quot;fixed&quot;);</div><div class="line">		$(&quot;.classification-list&quot;).addClass(&quot;mart&quot;);</div><div class="line">	&#125;else&#123;</div><div class="line">		$(&quot;.classification&quot;).removeClass(&quot;fixed&quot;);</div><div class="line">		$(&quot;.classification-list&quot;).removeClass(&quot;mart&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h4 id="顶部导航滚动条-iScroll插件滚动"><a href="#顶部导航滚动条-iScroll插件滚动" class="headerlink" title="顶部导航滚动条 iScroll插件滚动"></a>顶部导航滚动条 iScroll插件滚动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;header&quot; id=&quot;wrapper1&quot;&gt;</div><div class="line">    &lt;ul class=&quot;category-nav&quot;&gt;	//设置高度样式</div><div class="line">        &lt;!-- &lt;li&gt;导航分类&lt;/li&gt; --&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">// js</div><div class="line">$(&quot;.category-nav&quot;).append(str);	//ajax获取添加到分类列表中</div><div class="line">var all_width = document.getElementsByClassName(&apos;category-nav&apos;)[0].scrollWidth;	//获取当前实际宽度</div><div class="line">$(&apos;.category-nav&apos;).css(&#123;</div><div class="line">    &apos;width&apos;:all_width + &apos;px&apos;</div><div class="line">&#125;);</div><div class="line">var myscroll= new iScroll(&quot;wrapper1&quot;,&#123;	//初始化滚动条</div><div class="line">    scrollX: true,  </div><div class="line">    scrollY: false, </div><div class="line">    hScrollbar:false,</div><div class="line">    vScrollbar : false,</div><div class="line">    vScroll:false</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h4 id="时间戳转换格式函数-00-00"><a href="#时间戳转换格式函数-00-00" class="headerlink" title="时间戳转换格式函数 00:00"></a>时间戳转换格式函数 00:00</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function stom(t) &#123;</div><div class="line">    var m = Math.floor(t / 60);</div><div class="line">    m &lt; 10 &amp;&amp; (m = &apos;0&apos; + m);</div><div class="line">    return m + &quot;:&quot; + (t % 60 / 100).toFixed(2).slice(-2);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="时间戳转换日期格式函数-2017-10-11"><a href="#时间戳转换日期格式函数-2017-10-11" class="headerlink" title="时间戳转换日期格式函数 // 2017-10-11"></a>时间戳转换日期格式函数 // 2017-10-11</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function formatDate(dt)&#123;</div><div class="line">  if(!dt)&#123;</div><div class="line">    dt = new Date();</div><div class="line">  &#125;</div><div class="line">  var year = dt.getFullYear();</div><div class="line">  var month = dt.getMonth() + 1;</div><div class="line">  var date = dt.getDate();</div><div class="line">  if(month &lt; 10)&#123;</div><div class="line">    month = &apos;0&apos; + month;</div><div class="line">  &#125;</div><div class="line">  if(date &lt; 10)&#123;</div><div class="line">    date = &apos;0&apos; + date;</div><div class="line">  &#125;</div><div class="line">  return year + &apos;-&apos; + month + &apos;-&apos; + date</div><div class="line">&#125;</div><div class="line"></div><div class="line">var dt = new Date();</div><div class="line">console.log(formatDate(dt));  // 2017-10-11</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -413,25 +404,6 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/08/01/前端技巧方法集合整理/"
-     data-title="前端技巧方法集合整理"
-     data-content=""
-     data-url="https://inzaghihao.github.io/2017/08/01/前端技巧方法集合整理/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
     </div>
   </div>
 
@@ -442,10 +414,6 @@
 
           
   <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2017/08/01/前端技巧方法集合整理/"
-           data-title="前端技巧方法集合整理" data-url="https://inzaghihao.github.io/2017/08/01/前端技巧方法集合整理/">
-      </div>
     
   </div>
 
@@ -493,7 +461,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -574,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#手机号码正则验证方法"><span class="nav-number">1.</span> <span class="nav-text">手机号码正则验证方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送验证码倒计时"><span class="nav-number">2.</span> <span class="nav-text">发送验证码倒计时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监听input改变"><span class="nav-number">3.</span> <span class="nav-text">监听input改变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素滚动到顶部固定定位"><span class="nav-number">4.</span> <span class="nav-text">元素滚动到顶部固定定位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顶部导航滚动条-iScroll插件滚动"><span class="nav-number">5.</span> <span class="nav-text">顶部导航滚动条 iScroll插件滚动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间戳转换格式函数-00-00"><span class="nav-number">6.</span> <span class="nav-text">时间戳转换格式函数 00:00</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#手机号码正则验证方法"><span class="nav-number">1.</span> <span class="nav-text">手机号码正则验证方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送验证码倒计时"><span class="nav-number">2.</span> <span class="nav-text">发送验证码倒计时</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监听input改变"><span class="nav-number">3.</span> <span class="nav-text">监听input改变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素滚动到顶部固定定位"><span class="nav-number">4.</span> <span class="nav-text">元素滚动到顶部固定定位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顶部导航滚动条-iScroll插件滚动"><span class="nav-number">5.</span> <span class="nav-text">顶部导航滚动条 iScroll插件滚动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间戳转换格式函数-00-00"><span class="nav-number">6.</span> <span class="nav-text">时间戳转换格式函数 00:00</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间戳转换日期格式函数-2017-10-11"><span class="nav-number">7.</span> <span class="nav-text">时间戳转换日期格式函数 // 2017-10-11</span></a></li></ol></div>
             
 
           </div>
@@ -699,39 +667,32 @@
 
   
 
-  
-    
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"inzaghihao"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
 
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+
+
+
+
+	
+
+
+
+
+
   
 
 
 
 
 
+  
 
 
 
 
 
+  
 
 
 
