@@ -1,5 +1,5 @@
 ---
-title: vue萌新(包含自动化构建工具配置)
+title: vue萌新(流行开发套路)
 date: 2017-03-28 19:18:28
 tags: [javascript, vue]
 ---
@@ -482,4 +482,263 @@ data(){
 
 <h2>标题： {{newsdetail.title}}<small>发布时间：{{newsdetail.pubtime}}</small></h2>
 <p> {{newsdetail.desc}} </p>
+```
+
+### 自定义插件
+
+自定义插件的意义在于把业务代码写到插件中，多组件可服用。避免写在组件中显得冗余。
+
+自定义一个插件必须包含一个公开方法 `install` 这个方法的第一个参数是 Vue 构造器 ,第二个参数是一个可选的选项对象
+
+```
+export default{
+    install(Vue,options){
+         
+    }
+}
+```
+使用 `Vue.prototype` 定义插件全局对象方法，在组件中直接 this.$xx 调用
+
+```
+Vue.prototype.checkName=(value)=>{
+    if(!value) return true;
+    return /\w{6,20}/.test(value)?true:false;
+}
+```
+
+#### 在自定义插件中定义自定义指令
+
+使用 `v-ckname` 绑定指令
+
+```
+Vue.directive("ckname",{
+    bind(){
+        let error = Vue.extend({
+            template:'<label class="label label-danger">{{message}}</label>',
+            data(){
+                return {
+                    message:"用户名不合法"
+                }
+                
+            }
+        })
+        Vue.errorLabel = (new error()).$mount().$el;
+    },
+    update(el,bind,vnode){
+        if(/\w{6,20}/.test(el.value)){
+            if(Vue.hasError){
+                el.parentNode.removeChild(Vue.errorLabel);
+                Vue.hasError=!Vue.hasError;
+            }
+            //vnode.context[bind.expression]=false
+        }else{
+            if(!Vue.hasError){
+                el.parentNode.appendChild(Vue.errorLabel);
+                Vue.hasError=!Vue.hasError;
+            }
+            //vnode.context[bind.expression]=true
+        }
+    }
+})
+```
+
+使用 `extend` 创建元素并手动挂载，和创建普通的组件格式一样，然后要实例化，`$mount` 挂载在元素上
+
+```
+Vue.prototype.errorLabel=null;
+
+let error = Vue.extend({
+    template:'<label class="label label-danger">{{message}}</label>',
+    data(){
+        return {
+            message:"用户名不合法"
+        }
+        
+    }
+})
+Vue.errorLabel = (new error()).$mount().$el;        //$el 返回Vue实例的挂载元素
+
+//然后可以直接 removeChild 到任意节点
+
+update(el,binding,vnode){
+     el.parentNode.removeChild(Vue.errorLabel);
+}
+```
+
+### Vuex 状态管理插件
+
+```
+import Vuex from "vuex"
+Vue.use(Vuex);
+
+const vuex_store = new Vuex.Store({
+    state: {                //保存状态数据
+        userName:""
+    },
+    mutations:{
+        showUserName(state){        //参数为当前的数据容器名。state
+            alert(state.username);
+        }
+    }
+})
+
+var mv = new Vue({
+    el:".container",
+    router:router,      //配置
+    store:vuex_store,       
+})
+
+
+// 存入到vuex容器的方法
+
+this.$store.state.userName = this.username;         //存入到vuex容器state中 的userName属性，直接和vuex交互
+
+//调用 mutations 方法，需要提交commit 调用该方法
+
+this.$store.commit("showUserName");
+
+```
+
+使用 getters 对原始数据进行过滤
+
+```
+<li v-for="news in this.$store.getters.getNews">
+
+
+state:{
+    newslist:[],
+},
+getters:{
+    getNews(state){
+        return state.newslist.filter(function(item){
+            return !item.isdeleted;
+        })
+    }
+}
+```
+
+Actions 类似于 mutation
+> Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 context.commit 提交一个 mutation，或者通过 context.state 和 context.getters 来获取 state 和 getters。
+
+可以在 actions 内部执行异步操作
+
+```
+actions:{
+    newslists(context){
+        fetch("http://localhost/vue/newslist1.php",{
+            method:"get"
+        }).then((res)=>{
+            if(res.ok){
+                res.json().then((res)=>{
+                    context.commit("setList",res);      
+                    console.log(res)
+                })
+            }
+        },function(){
+
+        })
+    }
+},
+```
+
+分发 actions 相当于触发mutation
+
+```
+this.$store.dispatch("newslists");
+```
+
+Modules 将 store 分割到模块（module）。每个模块拥有自己的 state、mutation、action、getters。
+
+遵循项目结构
+```
+├── index.html
+├── main.js
+├── api
+│   └── ... # 抽取出API请求
+├── components
+│   ├── App.vue
+│   └── ...
+└── store
+    ├── index.js          # 我们组装模块并导出 store 的地方
+    ├── actions.js        # 根级别的 action
+    ├── mutations.js      # 根级别的 mutation
+    └── modules
+        ├── cart.js       # 购物车模块
+        └── products.js   # 产品模块
+```
+
+通过导出的形式写单独的一个module模块
+```
+export default{
+    state:{
+        newslist:[],
+    },
+    mutations:{
+        setList(state,setlist){
+            state.newslist = setlist;
+        }
+    },
+    actions:{
+        newslists(context){
+            fetch("http://localhost/vue/newslist1.php",{
+                method:"get"
+            }).then((res)=>{
+                if(res.ok){
+                    res.json().then((res)=>{
+                        context.commit("setList",res);
+                        console.log(res)
+                    })
+                }
+            },function(){
+
+            })
+        }
+    },
+    getters:{
+        getNews(state){
+            return state.newslist.filter(function(item){
+                return !item.isdeleted;
+            })
+        }
+    }
+}
+
+```
+
+引用
+```
+import newsmodule from "./../store/modules/NewsModules.js";
+
+const vuex_store = new Vuex.Store({
+    modules: {
+        userStore: usermodule,      //属性名对应导出的单独模块
+        newsStore: newsmodule
+    }
+})
+
+```
+
+修改组件中的调用方法
+
+```
+if(this.$store.state.newsStore.newslist.length==0){         //因为此时的state是各自模块中的，并不是全局的。所以需要在state 后加上对应的模块名
+    //....
+}
+```
+
+使用fecth 
+
+```
+fetch("http://localhost/vue/newslist1.php",{
+    method:"get"
+}).then((res)=>{
+    if(res.ok){
+        res.json().then((res)=>{
+            context.commit("setList",res);
+            console.log(res)
+        })
+    }
+},function(){
+
+})
 ```

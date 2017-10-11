@@ -9,7 +9,7 @@ tags: [笔记, android]
 
 ### 通过id 找到元素按钮并赋值
 
-- this.findViewById(R.id.) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应的16进制int整型，使用R.id 寻找该元素
+- this.findViewById(R.id.id) 参数中是int类型 通过定义@+id 定义元素id，自动生成在R.java类文件中生成转换成相应的16进制int整型，使用R.id 寻找该元素
 - Button btn = (Button)findViewById(R.id.btn) 强制转换成botton 类型的元素
 - OnclickListener 绑定监听器
 
@@ -58,7 +58,33 @@ startActivity(intent);  //启动一个定义的意图
 ```
 
 
-如需要权限在 MainActivity.java 文件中 application 标签下加入以下权限
+如需要权限在 AndroidManifest.xml 文件中 application 标签下加入以下权限
 ```
 <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
 ```
+
+隐式启动界面,在 AndroidManifest.xml 中 设置要启动的界面的 `<intent-filter>`
+
+```
+<intent-filter>
+    <action android:name="abc"/>
+    <category android:name="android.intent.category.DEFAULT"/>
+</intent-filter>
+
+
+//在第一个界面中设置 setAction 启动即可
+Intent intent = new Intent();
+intent. setAction("abc");
+startActivity(intent);
+```
+
+使用 `intent.setClassName(包名,包名+activity 名)` 打开外部程序
+
+```
+intent.setClassName("com.android.deskclock","com.android.deskclock.DeskClock");
+
+intent.setComponent(new ComponentName("com.android.deskclock","com.android.deskclock.DeskClock"));
+```
+
+
+
