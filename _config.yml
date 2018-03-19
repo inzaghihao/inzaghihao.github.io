@@ -73,8 +73,8 @@ deploy:
   branch: master # github分支
 
 # 多说
-duoshuo_shortname: inzaghihao
-duoshuo_share: true
+# duoshuo_shortname: inzaghihao
+# duoshuo_share: true
 
 # title
 links_title: Links
